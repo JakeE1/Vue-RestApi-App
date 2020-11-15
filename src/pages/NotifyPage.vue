@@ -12,6 +12,10 @@
         <div class="notify__content">
           <preloader v-if="loading"/>
 
+          <div class="error" v-if="error">
+              <p>{{ error }}</p>
+          </div>
+
           <notify :messages="messages" />
         </div>
                     
@@ -32,7 +36,8 @@ export default {
   components: { notify, preloader },
   data () {
     return {
-      loading: false
+      loading: false,
+      error: null
     }
   },
    mounted () {
@@ -69,6 +74,7 @@ export default {
         })
         .catch((err) => {
           console.log(err);
+          this.error = 'Error: Network Error' 
         })
         .finally(() => {
            this.loading = false
