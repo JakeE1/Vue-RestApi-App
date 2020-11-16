@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import Notify from './notify'
-
 Vue.use(Vuex)
 
+import example from './example'
+
 export default new Vuex.Store({
-  modules: {
-    Notify
-  }
+    modules: {
+      example   
+    }    
 })
